@@ -13,11 +13,14 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    let productController = ProductController()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+       /* let chipImage = UIImage(named: "chipBag")
+        productController.adminCreateProduct(withName: "Flatbread", andSize: "3-pack", andFlavors: 4, image: chipImage!.pngData()!, price: 6.99)*/
         return true
     }
 

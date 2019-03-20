@@ -10,31 +10,35 @@ import Foundation
 import UIKit
 //import Firebase Database
 import FirebaseAuth
+import Firebase
 
 class UserController {
     
     var userFound: Bool = false
-    var serverCurrentUser = Auth.auth().currentUser
     var currentUser: User?
     let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+    
+    //  var serverCurrentUser = Auth.auth().currentUser
    // private let userRef = Database.database().reference().child("users")
+    
     let baseURL = URL(string: "https://type-keto-store.firebaseio.com/")!
     
-    func createUserAccount(withEmail email: String, andPassword password: String, andName fullName: String) {
+    func createUserAccount(withEmail email: String, andPassword password: String, andName fullName: String, completion: @escaping (Error?) -> Void) {
         
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             
             if let error = error {
                 NSLog("Error creating user account: \(error)")
+                completion(error)
+                return
             }
             
             if let userAccount = user {
-               
                 let userLocal = User(emailAddress: userAccount.user.email!, password: password, fullName: fullName, uid: userAccount.user.uid)
                 if Auth.auth().currentUser?.uid == userLocal.uid {
             
                     self.currentUser = userLocal
-                    self.putUserToServer(user: userLocal)
+                    self.putUserToServer(user: userLocal, completion: completion)
                     self.changeRequest?.displayName = userLocal.fullName
                     self.changeRequest?.commitChanges { (error) in
                         print("Created display name")
@@ -46,20 +50,29 @@ class UserController {
         
     }
     
-    func login(withEmail email: String, andPassword password: String) {
+    func updateUserInfo(withUser user: User, rewardPoints: Int, newOrder: Order) {
+        user.rewardPoints += rewardPoints
+        user.orderHistory!.append(newOrder)
         
-        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
-            
-            if let error = error {
-                NSLog("Error creating user account: \(error)")
+        putUserToServer(user: user)
+       
+    }
+    
+    func login(withEmail email: String, andPassword password: String, completion: @escaping (Error?) -> Void) {
+        
+            Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+                
+                if let error = error {
+                    NSLog("Error finding user account: \(error)")
+                    completion(error)
+                    return
+                }
+                
+                if let userAccount = user {
+                    self.userFound = true
+                    self.fetchSingleEntryFromServer(userId: userAccount.user.uid, completion: completion)
+                }
             }
-            
-            if let userAccount = user {
-                self.userFound = true
-                self.fetchSingleEntryFromServer(userId: userAccount.user.uid)
-               // print("The current user is: \(self.currentUser)")
-            }
-        }
         
         
     }
@@ -124,6 +137,8 @@ class UserController {
                 let userFromServer = try decoder.decode(User.self, from: data)
                 self.currentUser = userFromServer
                 print("The current user is: \(self.currentUser!.fullName)")
+                
+                completion(nil)
                 
             } catch {
                 NSLog("Error decoding user representation: \(error)")
