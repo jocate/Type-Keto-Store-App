@@ -18,7 +18,6 @@ class UserController {
     var currentUser: User?
     let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
     var customer: CheckoutCustomer?
-    var cartID = String()
     //  var serverCurrentUser = Auth.auth().currentUser
    // private let userRef = Database.database().reference().child("users")
     
@@ -51,13 +50,13 @@ class UserController {
         
     }
     
-   /* func updateUserInfo(withUser user: User, rewardPoints: Int, newOrder: Order) {
+    func updateUserInfo(withUser user: User, rewardPoints: Int, orderId: String) {
         user.rewardPoints += rewardPoints
-        user.orderHistory!.append(newOrder)
+        user.orderIds.append(orderId)
         
         putUserToServer(user: user)
        
-    }*/
+    }
     
     func login(withEmail email: String, andPassword password: String, completion: @escaping (Error?) -> Void) {
         
@@ -71,8 +70,6 @@ class UserController {
                 
                 if let userAccount = user {
                     self.userFound = true
-                    self.customer = CheckoutCustomer(emailAddress: userAccount.user.email!, name: userAccount.user.displayName!)
-                    self.cartID = UUID().uuidString
                     self.fetchSingleEntryFromServer(userId: userAccount.user.uid, completion: completion)
                 }
             }
@@ -140,6 +137,10 @@ class UserController {
                 let userFromServer = try decoder.decode(User.self, from: data)
                 self.currentUser = userFromServer
                 print("The current user is: \(self.currentUser!.fullName)")
+                let cust = CheckoutCustomer(emailAddress: self.currentUser!.emailAddress, name: self.currentUser!.fullName)
+                self.customer = cust
+                
+                print("Customer from login: \(self.customer!)")
                 
                 completion(nil)
                 
@@ -151,7 +152,40 @@ class UserController {
         }.resume()
             
     }
+    
+    
+ /*   func saveToPersistentStore() {
+        guard let url = persistentFileURL else { return }
         
+        let encoder = PropertyListEncoder()
+        do {
+            let data = try encoder.encode(currentUser)
+            try data.write(to: url)
+        } catch {
+            print(error)
+        }
+    }
+    
+    func loadToPersistentStore() {
+        guard let url = persistentFileURL, FileManager.default.fileExists(atPath: url.path) else { return }
+        
+        do {
+            let data = try Data(contentsOf: url)
+            let decoder = PropertyListDecoder()
+            currentUser = try decoder.decode(currentUser.self, from: data)
+            
+        } catch {
+            print(error)
+        }
+    }
+    
+    private var persistentFileURL: URL? {
+        let fileManager = FileManager.default
+        
+        guard let documentsDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask) else { return nil }
+        
+        let finalLocation = documentsDirectory.appendingPathComponent("type)
+    }*/
     
     
     

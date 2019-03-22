@@ -8,17 +8,22 @@
 
 import UIKit
 import Firebase
+import Stripe
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
+    static let cartID = UUID().uuidString
+    
   //  let productController = ProductController()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        STPPaymentConfiguration.shared().publishableKey = "pk_test_tzpufGQ9KTM4sm1latOBaOVm"
+
        /* let chipImage = UIImage(named: "chipBag")
         productController.adminCreateProduct(withName: "Flatbread", andSize: "3-pack", andFlavors: 4, image: chipImage!.pngData()!, price: 6.99)*/
         return true

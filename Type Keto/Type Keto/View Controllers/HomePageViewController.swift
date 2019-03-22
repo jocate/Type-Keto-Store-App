@@ -35,7 +35,7 @@ class HomePageViewController: UIViewController, UICollectionViewDelegate, UIColl
         cell.productSizeLabel.text = product?.description
        // cell.productImageView.image = UIImage(data: product?.mainImage)
         
-       // cell.product = product
+        cell.product = product
         
         return cell
     }
@@ -73,7 +73,8 @@ class HomePageViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setUpNavBar()
+       // setUpNavBar()
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationItem.setHidesBackButton(true, animated: true)
        // self.productCollectionView.reloadData()
     }
@@ -115,9 +116,10 @@ class HomePageViewController: UIViewController, UICollectionViewDelegate, UIColl
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "FromHomeToCart" {
+        if segue.identifier == "ToCart" {
             let destinationVC = segue.destination as! CartViewController
             
+            print("User from home Segue: \(user?.emailAddress)")
            
             destinationVC.user = user
            // destinationVC.productController = productController
@@ -125,7 +127,7 @@ class HomePageViewController: UIViewController, UICollectionViewDelegate, UIColl
         
     }
     
-    func setUpNavBar() {
+    /*func setUpNavBar() {
         
         let shopIcon = UIImage(named: "shopIcon")
         let titleImageView = UIImageView(image: shopIcon)
@@ -154,7 +156,7 @@ class HomePageViewController: UIViewController, UICollectionViewDelegate, UIColl
         navigationController?.navigationBar.barTintColor = .blue
        // navigationController?.navigationBar.setBackgroundImage(blueNavBar, for: .default)
         
-    }
+    }*/
     
     
 }

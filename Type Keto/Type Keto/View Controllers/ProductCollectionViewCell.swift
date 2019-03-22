@@ -37,8 +37,10 @@ class ProductCollectionViewCell: UICollectionViewCell {
     
     @IBAction func addToCartTapped(_ sender: UIButton) {
         guard let product = product else { return }
-        
-        self.moltin.cart.addProduct(withID: product.id, ofQuantity: 1, toCart: userController.cartID) { (result) in
+        print("About to add to cart")
+        print("Product Id: \(product.id)")
+        print("Cart Id: \(AppDelegate.cartID)")
+        self.moltin.cart.addProduct(withID: product.id, ofQuantity: 1, toCart: AppDelegate.cartID) { (result) in
             switch result {
             case .success:
                 print("Added a product to the cart")

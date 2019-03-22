@@ -20,6 +20,29 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     let userController = UserController()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        updateCart()
+        self.moltin.cart.items(forCartID: AppDelegate.cartID) { (result) in
+            switch result {
+            case .success(let result):
+                print("Cart in viewWillAppear: \(result.data)")
+                DispatchQueue.main.async {
+                    self.cartItems = result.data ?? []
+                    self.cartTableView.reloadData()
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("Within the table view: \(self.cartItems.count)")
         return self.cartItems.count
@@ -29,9 +52,10 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "CartCell", for: indexPath) as! CartTableViewCell
         
         let cartItem = self.cartItems[indexPath.row]
-        cell.priceLabel.text = "$\(cartItem.meta.displayPrice.withoutTax)"
+        cell.priceLabel.text = "$\(cartItem.meta.displayPrice.withoutTax.value)"
         cell.productNameLabel.text = cartItem.name
         
+        cell.product = cartItem
         // at the moment you cannot change the quantity from 1
         
         return cell
@@ -39,24 +63,20 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
+   
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        updateCart()
-        cartTableView.reloadData()
-    }
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    } */
+        if segue.identifier == "FromCartToShip" {
+            let destinationVC = segue.destination as! ShipmentDetailsViewController
+            
+            
+            destinationVC.user = user
+            // destinationVC.productController = productController
+        }
+    }
     
      @IBOutlet weak var cartTableView: UITableView!
  
@@ -96,7 +116,8 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func checkoutTapped(_ sender: UIBarButtonItem) {
         
         if userController.currentUser?.rewardPoints == 250 && (userController.currentUser?.rewardPoints)! < 500 {
-            self.moltin.cart.addPromotion("250TKRewards", toCart: userController.cartID) { (result) in
+            print("25% off applies to this order!")
+            self.moltin.cart.addPromotion("250TKRewards", toCart: AppDelegate.cartID) { (result) in
                 switch result {
                 case .success(let status):
                     DispatchQueue.main.async {
@@ -108,7 +129,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
             
         }
         
-        
+        self.performSegue(withIdentifier: "FromCartToShip", sender: self)
         
        
     }

@@ -24,7 +24,7 @@ class CartTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
  //   let productController = ProductController()
-    var product: Product? {
+    var product: CartItem? {
         didSet {
             updateViews()
         }
@@ -32,12 +32,16 @@ class CartTableViewCell: UITableViewCell {
     
     func updateViews() {
         guard let product = product else { return }
+     
+      //  let price = product.price
         
-        let price = product.price
+       // priceLabel.text = "$\(price)"
+        DispatchQueue.main.async {
+            self.quantityLabel.text = "Quantity: \(self.quantity)"
+        }
         
-        priceLabel.text = "$\(price)"
      //   productImageView.image = UIImage(data: product.image)
-        productNameLabel.text = product.name
+      //  productNameLabel.text = product.name
      
     }
     
@@ -51,19 +55,33 @@ class CartTableViewCell: UITableViewCell {
     
     @IBOutlet weak var stepper: UIStepper!
     
-    var quantity = Int()
+    var quantity = 1
     
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
         guard let product = product else { return }
+        
         quantity = Int(sender.value)
-        quantityLabel.text = "Quantity: \(Int(sender.value).description)"
-    
+        
+        self.moltin.cart.updateItem(product.id, withQuantity: quantity, inCart: AppDelegate.cartID) { (result) in
+            
+            switch result {
+            case .success:
+                print("Successfully updated item quantity")
+                DispatchQueue.main.async {
+                    self.updateViews()
+                }
+            case .failure(let error):
+                print("Could not update item quantity: \(error)")
+            }
+        }
+        
+      
     }
     
     @IBAction func deleteButtonTapped(_ sender: UIButton) {
         guard let product = product else { return }
         
-        
+        //removeItem
     }
     
     

@@ -31,7 +31,7 @@ class LoginViewController: UIViewController {
             let destinationVC = segue.destination as! HomePageViewController
             
             let user = userController.currentUser
-            
+            print("User from Login Segue: \(user?.emailAddress)")
             destinationVC.user = user
             destinationVC.userController = userController
         }

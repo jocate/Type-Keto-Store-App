@@ -15,10 +15,20 @@ class PaymentViewController: UIViewController {
     
     let userController = UserController()
     
+    var user: User?
+    
+    var billingAdd: Address?
+    var shippingAdd: Address?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     @IBOutlet weak var firstNameLabel: UITextField!
@@ -34,10 +44,13 @@ class PaymentViewController: UIViewController {
     @IBOutlet weak var cvvLabel: UITextField!
     
     @IBAction func finishTapped(_ sender: UIBarButtonItem) {
+       
+        let checkoutCustomer = Customer(withID: user!.uid, withEmail: user!.emailAddress, withName: user!.fullName)
         
-        let checkoutCustomer = Customer(withID: userController.currentUser?.uid, withEmail: userController.customer?.emailAddress, withName: userController.customer?.name)
-        
-        self.moltin.cart.checkout(cart: userController.cartID, withCustomer: checkoutCustomer, withBillingAddress: billingAddress!, withShippingAddress: shippingAddress!) { (result) in
+       /* print("Bill: \(billingAddress!)")
+        print("Ship: \(shippingAddress)")*/
+       
+        self.moltin.cart.checkout(cart: AppDelegate.cartID, withCustomer: checkoutCustomer, withBillingAddress: billingAddress!, withShippingAddress: shippingAddress) { (result) in
             
             switch result {
             case .success(let order):
@@ -57,6 +70,7 @@ class PaymentViewController: UIViewController {
             
             switch result {
             case .success:
+                self.userController.updateUserInfo(withUser: self.user!, rewardPoints: 25, orderId: order.id)
                 DispatchQueue.main.async {
                     self.showOrderStatus(withSuccess: true)
                 }
@@ -94,5 +108,6 @@ class PaymentViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    
 }
