@@ -7,29 +7,29 @@
 //
 
 import UIKit
+import moltin
 
 class ProductCollectionViewCell: UICollectionViewCell {
     
+    let moltin: Moltin = Moltin(withClientID: "rxlE4z2FEDFv8YJdPN0GC9wzclQITMemsoathUB4Vt")
     
-    var product: Product? {
-        didSet {
-            updateViews()
-        }
-    }
+  //  let productController = ProductController()
+    let userController = UserController()
     
-    let productController = ProductController()
+    var product: Product?
     
-    func updateViews() {
+   /* func updateViews() {
         guard let product = product else { return }
         
-        productImageView.image = UIImage(data: product.image)
+       productImageView.image = UIImage(data: product.image)
         productNameLabel.text = product.name
         productSizeLabel.text = product.size
         productDetailLabel.text = "\(product.numOfFlavors) flavors"
         productPriceLabel.text = String(product.price)
         
         
-    }
+    }*/
+    
     
     @IBOutlet weak var productImageView: UIImageView!
     
@@ -37,12 +37,14 @@ class ProductCollectionViewCell: UICollectionViewCell {
     
     @IBAction func addToCartTapped(_ sender: UIButton) {
         guard let product = product else { return }
-        productController.addProductToCart(withProduct: product) { (error) in
-            if let error = error {
-                NSLog("Error adding product to cart: \(error)")
-                
+        
+        self.moltin.cart.addProduct(withID: product.id, ofQuantity: 1, toCart: userController.cartID) { (result) in
+            switch result {
+            case .success:
+                print("Added a product to the cart")
+            case .failure(let error):
+                print("Error adding a product to the cart: \(error)")
             }
-           
         }
         
     }

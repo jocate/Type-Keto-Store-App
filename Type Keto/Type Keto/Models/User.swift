@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import moltin
 
 class User: Codable {
     
@@ -22,15 +23,16 @@ class User: Codable {
     var fullName: String
     var uid: String
     var rewardPoints: Int
-    var orderHistory: [Order]?
+   // var cart: Cart
+ //   var orderHistory: [Order]?
     
-    init(emailAddress: String, password: String, fullName: String, uid: String, rewardPoints: Int = 0, orderHistory: [Order] = []) {
+    init(emailAddress: String, password: String, fullName: String, uid: String, rewardPoints: Int = 0/* orderHistory: [Order] = []*/) {
         self.emailAddress = emailAddress
         self.password = password
         self.fullName = fullName
         self.uid = uid
         self.rewardPoints = rewardPoints
-        self.orderHistory = orderHistory
+     //   self.orderHistory = orderHistory
     }
     
    /* var dictionaryRepresentation: [String: Any] {

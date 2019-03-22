@@ -8,13 +8,13 @@
 
 import Foundation
 
-class Order: Codable, Equatable {
+/*class Order: Codable, Equatable {
     static func == (lhs: Order, rhs: Order) -> Bool {
         return rhs.cancel == lhs.cancel
     }
     
     
-    var products: [Product]
+    var products: Cart
     var user: User
     var orderId: String
     var timestamp: Date
@@ -24,7 +24,7 @@ class Order: Codable, Equatable {
     var shippingAddress: String
     var lastFourDigitsOfCard: String
     
-    init(products: [Product], user: User, orderId: String = UUID().uuidString, timestamp: Date = Date(), rewardPoints: Int, cancel: Bool = false, shippingAddress: String, lastFourDigitsOfCard: String) {
+    init(products: Cart, user: User, orderId: String = UUID().uuidString, timestamp: Date = Date(), rewardPoints: Int, cancel: Bool = false, shippingAddress: String, lastFourDigitsOfCard: String) {
         
         self.products = products
         self.user = user
@@ -39,4 +39,4 @@ class Order: Codable, Equatable {
     }
     
     
-}
+}*/

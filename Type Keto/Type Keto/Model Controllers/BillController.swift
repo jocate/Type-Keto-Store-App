@@ -15,6 +15,8 @@ class BillController {
     
     var newRewardPoints = Int()
     var currentBill: Bill?
+    var freeShipping: Bool = false
+    let shippingCost = 5.95
     
     func calculateRewards(purchaseAmount: Double) {
         
@@ -32,7 +34,38 @@ class BillController {
         
     }
     
+   /* func calculatePurchaseAmount(cart: [Product]) -> Double {
+        var total = Double()
+        
+        for product in cart {
+            total += (product.price * Double(product.quantity ?? 1))
+        }
+        
+        return total
+        
+    }*/
     
+    func calculatePurchaseWithTaxes(purchaseAmount: Double) -> Double {
+        let taxPercentage = 0.06
+        let withTax = (purchaseAmount * taxPercentage)
+        
+        return (purchaseAmount + withTax)
+    }
+   
     
+    func calcTotalCharged(purchaseWithTaxes: Double) -> Double {
+        
+        var totalCharged = Double()
+        
+        if freeShipping == true {
+            totalCharged = purchaseWithTaxes
+           // return totalCharged
+        } else {
+            totalCharged = shippingCost + purchaseWithTaxes
+        }
+        
+        return totalCharged
+        
+    }
     
 }

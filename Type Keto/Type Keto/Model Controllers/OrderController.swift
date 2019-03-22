@@ -8,11 +8,11 @@
 
 import Foundation
 
-class OrderController {
+/*class OrderController {
     
     let userController = UserController()
     
-    func createOrder(withCart cart: [Product], user: User, bill: Bill, rewardPoints: Int, shippingAddress: String, lastDigits: String) {
+    func createOrder(withCart cart: Cart, user: User, bill: Bill, rewardPoints: Int, shippingAddress: String, lastDigits: String) {
         
         var order = Order(products: cart, user: user, rewardPoints: rewardPoints, shippingAddress: shippingAddress, lastFourDigitsOfCard: lastDigits)
         
@@ -50,4 +50,4 @@ class OrderController {
     
     
     
-}
+}*/

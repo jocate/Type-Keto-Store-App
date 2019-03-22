@@ -20,6 +20,10 @@
 		4F0862F02240308B0069161D /* Type_KetoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0862EF2240308B0069161D /* Type_KetoTests.swift */; };
 		4F0862FB2240308B0069161D /* Type_KetoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0862FA2240308B0069161D /* Type_KetoUITests.swift */; };
 		4F086309224030DB0069161D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F086308224030DB0069161D /* GoogleService-Info.plist */; };
+		4FB1C0D422427ED40079BED9 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB1C0D322427ED40079BED9 /* CartTableViewCell.swift */; };
+		4FB1C0D622429CCE0079BED9 /* PaymentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB1C0D522429CCE0079BED9 /* PaymentController.swift */; };
+		4FB1C0D82242B30F0079BED9 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB1C0D72242B30F0079BED9 /* Cart.swift */; };
+		4FB1C0DA2242B4230079BED9 /* CartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB1C0D92242B4230079BED9 /* CartController.swift */; };
 		4FB8DFE8224196AE00F3E303 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB8DFE7224196AE00F3E303 /* ProductCollectionViewCell.swift */; };
 		4FB8DFEA2241978900F3E303 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB8DFE92241978900F3E303 /* Product.swift */; };
 		4FB8DFEC22419E6400F3E303 /* ProductController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB8DFEB22419E6400F3E303 /* ProductController.swift */; };
@@ -28,6 +32,9 @@
 		4FB8DFF22241A7D400F3E303 /* OrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB8DFF12241A7D400F3E303 /* OrderController.swift */; };
 		4FB8DFF42241A7E100F3E303 /* BillController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB8DFF32241A7E100F3E303 /* BillController.swift */; };
 		4FB8DFF62241E49100F3E303 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB8DFF52241E49100F3E303 /* CartViewController.swift */; };
+		4FE9929422442F7600069785 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE9929322442F7600069785 /* Customer.swift */; };
+		4FE99296224459E400069785 /* ShipmentDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE99295224459E400069785 /* ShipmentDetailsViewController.swift */; };
+		4FE9929822445E9A00069785 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE9929722445E9A00069785 /* PaymentViewController.swift */; };
 		B80E7BAA0E40D995C3A793A6 /* Pods_Type_Keto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 759A7E7B5B5C360742F49E13 /* Pods_Type_Keto.framework */; };
 		DC487EC1E668CCC41A276314 /* Pods_Type_KetoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08C702F836D0806BF3610076 /* Pods_Type_KetoTests.framework */; };
 		ED2C875D53B1012460558982 /* Pods_Type_KetoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99499A93DF737F03C462F8F8 /* Pods_Type_KetoUITests.framework */; };
@@ -74,6 +81,10 @@
 		4F0862FA2240308B0069161D /* Type_KetoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Type_KetoUITests.swift; sourceTree = "<group>"; };
 		4F0862FC2240308B0069161D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F086308224030DB0069161D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4FB1C0D322427ED40079BED9 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
+		4FB1C0D522429CCE0079BED9 /* PaymentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentController.swift; sourceTree = "<group>"; };
+		4FB1C0D72242B30F0079BED9 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
+		4FB1C0D92242B4230079BED9 /* CartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartController.swift; sourceTree = "<group>"; };
 		4FB8DFE7224196AE00F3E303 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		4FB8DFE92241978900F3E303 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		4FB8DFEB22419E6400F3E303 /* ProductController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductController.swift; sourceTree = "<group>"; };
@@ -82,6 +93,9 @@
 		4FB8DFF12241A7D400F3E303 /* OrderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderController.swift; sourceTree = "<group>"; };
 		4FB8DFF32241A7E100F3E303 /* BillController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillController.swift; sourceTree = "<group>"; };
 		4FB8DFF52241E49100F3E303 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		4FE9929322442F7600069785 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
+		4FE99295224459E400069785 /* ShipmentDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentDetailsViewController.swift; sourceTree = "<group>"; };
+		4FE9929722445E9A00069785 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		50BFF4F9390272B9CD5E8B46 /* Pods-Type KetoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Type KetoTests.release.xcconfig"; path = "Target Support Files/Pods-Type KetoTests/Pods-Type KetoTests.release.xcconfig"; sourceTree = "<group>"; };
 		759A7E7B5B5C360742F49E13 /* Pods_Type_Keto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Type_Keto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		977709ECFFC5F726A152144D /* Pods-Type KetoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Type KetoTests.debug.xcconfig"; path = "Target Support Files/Pods-Type KetoTests/Pods-Type KetoTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -148,7 +162,10 @@
 				4F0662902240490A00232BD7 /* HomePageViewController.swift */,
 				4FB8DFE7224196AE00F3E303 /* ProductCollectionViewCell.swift */,
 				4FB8DFF52241E49100F3E303 /* CartViewController.swift */,
+				4FB1C0D322427ED40079BED9 /* CartTableViewCell.swift */,
 				4F0862DC224030870069161D /* ViewController.swift */,
+				4FE99295224459E400069785 /* ShipmentDetailsViewController.swift */,
+				4FE9929722445E9A00069785 /* PaymentViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -157,9 +174,11 @@
 			isa = PBXGroup;
 			children = (
 				4F0662942240506A00232BD7 /* User.swift */,
+				4FE9929322442F7600069785 /* Customer.swift */,
 				4FB8DFE92241978900F3E303 /* Product.swift */,
 				4FB8DFED2241A5A000F3E303 /* Order.swift */,
 				4FB8DFEF2241A6EF00F3E303 /* Bill.swift */,
+				4FB1C0D72242B30F0079BED9 /* Cart.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -171,6 +190,8 @@
 				4FB8DFEB22419E6400F3E303 /* ProductController.swift */,
 				4FB8DFF12241A7D400F3E303 /* OrderController.swift */,
 				4FB8DFF32241A7E100F3E303 /* BillController.swift */,
+				4FB1C0D522429CCE0079BED9 /* PaymentController.swift */,
+				4FB1C0D92242B4230079BED9 /* CartController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -396,6 +417,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-Type Keto/Pods-Type Keto-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Moltin/moltin.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -404,6 +426,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/moltin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -463,7 +486,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FB8DFF22241A7D400F3E303 /* OrderController.swift in Sources */,
+				4FB1C0D82242B30F0079BED9 /* Cart.swift in Sources */,
 				4F06628D224048E100232BD7 /* LoginViewController.swift in Sources */,
+				4FB1C0DA2242B4230079BED9 /* CartController.swift in Sources */,
 				4F0862DD224030870069161D /* ViewController.swift in Sources */,
 				4FB8DFEA2241978900F3E303 /* Product.swift in Sources */,
 				4FB8DFEC22419E6400F3E303 /* ProductController.swift in Sources */,
@@ -471,12 +496,17 @@
 				4FB8DFEE2241A5A000F3E303 /* Order.swift in Sources */,
 				4FB8DFF62241E49100F3E303 /* CartViewController.swift in Sources */,
 				4FB8DFE8224196AE00F3E303 /* ProductCollectionViewCell.swift in Sources */,
+				4FE9929422442F7600069785 /* Customer.swift in Sources */,
 				4F0662952240506A00232BD7 /* User.swift in Sources */,
 				4F06628F224048F500232BD7 /* SignUpViewController.swift in Sources */,
+				4FE99296224459E400069785 /* ShipmentDetailsViewController.swift in Sources */,
 				4F0662982240508500232BD7 /* UserController.swift in Sources */,
 				4F0662912240490A00232BD7 /* HomePageViewController.swift in Sources */,
+				4FE9929822445E9A00069785 /* PaymentViewController.swift in Sources */,
 				4FB8DFF42241A7E100F3E303 /* BillController.swift in Sources */,
 				4F0862DB224030870069161D /* AppDelegate.swift in Sources */,
+				4FB1C0D422427ED40079BED9 /* CartTableViewCell.swift in Sources */,
+				4FB1C0D622429CCE0079BED9 /* PaymentController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

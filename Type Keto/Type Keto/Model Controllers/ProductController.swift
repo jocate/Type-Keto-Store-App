@@ -8,12 +8,13 @@
 
 import Foundation
 
-class ProductController {
+/*class ProductController {
     
     var cart: [Product] = []
     
     var displayProducts: [Product] = []
     
+    let cartController = CartController()
     
     let baseURL = URL(string: "https://type-keto-store.firebaseio.com/")!
     
@@ -28,11 +29,17 @@ class ProductController {
     
     func addProductToCart(withProduct product: Product, completion: @escaping (Error?) -> Void) {
         cart.append(product)
+        
     }
     
     func customerEditProduct(withProduct product: Product, andQuantity quantity: Int) {
         guard let index = cart.index(of: product) else { return }
         cart[index].quantity = quantity
+    }
+    
+    func deleteProductFromCart(withProduct product: Product, completion: @escaping (Error?) -> Void = {_ in }) {
+        guard let index = self.cart.index(of: product) else { return }
+        self.cart.remove(at: index)
     }
     
     func putProductToServer(product: Product, completion: @escaping (Error?) -> Void = {_ in }) {
@@ -101,4 +108,4 @@ class ProductController {
         
     }
     
-}
+}*/

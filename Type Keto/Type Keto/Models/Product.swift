@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class Product: Codable, Equatable {
+/*class Product: Codable, Equatable {
     static func == (lhs: Product, rhs: Product) -> Bool {
         return lhs.name == rhs.name
     }
@@ -34,3 +34,4 @@ class Product: Codable, Equatable {
     }
     
 }
+*/

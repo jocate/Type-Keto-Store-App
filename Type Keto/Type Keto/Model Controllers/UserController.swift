@@ -17,7 +17,8 @@ class UserController {
     var userFound: Bool = false
     var currentUser: User?
     let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
-    
+    var customer: CheckoutCustomer?
+    var cartID = String()
     //  var serverCurrentUser = Auth.auth().currentUser
    // private let userRef = Database.database().reference().child("users")
     
@@ -50,13 +51,13 @@ class UserController {
         
     }
     
-    func updateUserInfo(withUser user: User, rewardPoints: Int, newOrder: Order) {
+   /* func updateUserInfo(withUser user: User, rewardPoints: Int, newOrder: Order) {
         user.rewardPoints += rewardPoints
         user.orderHistory!.append(newOrder)
         
         putUserToServer(user: user)
        
-    }
+    }*/
     
     func login(withEmail email: String, andPassword password: String, completion: @escaping (Error?) -> Void) {
         
@@ -70,6 +71,8 @@ class UserController {
                 
                 if let userAccount = user {
                     self.userFound = true
+                    self.customer = CheckoutCustomer(emailAddress: userAccount.user.email!, name: userAccount.user.displayName!)
+                    self.cartID = UUID().uuidString
                     self.fetchSingleEntryFromServer(userId: userAccount.user.uid, completion: completion)
                 }
             }
