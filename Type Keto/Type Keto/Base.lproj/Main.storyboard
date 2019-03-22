@@ -78,26 +78,6 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="9lP-5H-2V7">
-                                <rect key="frame" x="78" y="452" width="219" height="90"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVb-lN-OiY">
-                                        <rect key="frame" x="0.0" y="0.0" width="219" height="43"/>
-                                        <state key="normal" image="loginBtn"/>
-                                        <connections>
-                                            <action selector="loginTapped:" destination="HXe-ir-gfx" eventType="touchUpInside" id="BSA-JD-gOS"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l11-U6-Grw">
-                                        <rect key="frame" x="0.0" y="47" width="219" height="43"/>
-                                        <state key="normal" image="signUpBtn"/>
-                                        <connections>
-                                            <segue destination="bgG-pv-dhK" kind="show" id="jrV-d1-Yo0"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" textAlignment="center" minimumFontSize="17" background="textField" translatesAutoresizingMaskIntoConstraints="NO" id="21F-iO-zF6">
                                 <rect key="frame" x="109" y="343" width="207" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -117,6 +97,22 @@
                                 <rect key="frame" x="65" y="345" width="48" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVb-lN-OiY">
+                                <rect key="frame" x="78" y="468" width="219" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="loginBtn"/>
+                                <connections>
+                                    <action selector="loginTapped:" destination="HXe-ir-gfx" eventType="touchUpInside" id="BSA-JD-gOS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l11-U6-Grw">
+                                <rect key="frame" x="78" y="515" width="219" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="signUpBtn"/>
+                                <connections>
+                                    <segue destination="bgG-pv-dhK" kind="show" id="jrV-d1-Yo0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.65098039220000004" green="0.81176470590000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -135,7 +131,7 @@
             </objects>
             <point key="canvasLocation" x="1484" y="132.68365817091455"/>
         </scene>
-        <!--Title-->
+        <!--Home-->
         <scene sceneID="jND-Kd-6hh">
             <objects>
                 <viewController id="mhr-FP-gMs" customClass="HomePageViewController" customModule="Type_Keto" customModuleProvider="target" sceneMemberID="viewController">
@@ -144,7 +140,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1Zj-Ya-ZuT">
-                                <rect key="frame" x="0.0" y="192" width="375" height="408"/>
+                                <rect key="frame" x="0.0" y="192" width="375" height="404"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3nI-h5-Npd">
                                     <size key="itemSize" width="174" height="257"/>
@@ -285,7 +281,7 @@
                             <constraint firstItem="1Zj-Ya-ZuT" firstAttribute="top" secondItem="dkM-Qj-ypl" secondAttribute="bottom" id="10X-he-mAC"/>
                             <constraint firstItem="1Zj-Ya-ZuT" firstAttribute="leading" secondItem="GgF-xm-aYX" secondAttribute="leading" id="IxT-BN-buk"/>
                             <constraint firstItem="1Zj-Ya-ZuT" firstAttribute="trailing" secondItem="GgF-xm-aYX" secondAttribute="trailing" id="PLJ-Ww-rmy"/>
-                            <constraint firstItem="pgg-7b-sDv" firstAttribute="top" secondItem="1Zj-Ya-ZuT" secondAttribute="bottom" id="QW7-Iu-nk4"/>
+                            <constraint firstItem="pgg-7b-sDv" firstAttribute="top" secondItem="1Zj-Ya-ZuT" secondAttribute="bottom" constant="4" id="QW7-Iu-nk4"/>
                             <constraint firstItem="dkM-Qj-ypl" firstAttribute="leading" secondItem="GgF-xm-aYX" secondAttribute="leading" id="VEr-ql-HlR"/>
                             <constraint firstItem="dkM-Qj-ypl" firstAttribute="top" secondItem="GgF-xm-aYX" secondAttribute="top" id="VLg-W6-8Cf"/>
                             <constraint firstItem="pgg-7b-sDv" firstAttribute="bottom" secondItem="GgF-xm-aYX" secondAttribute="bottom" id="Vyq-LM-Dcg"/>
@@ -295,7 +291,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GgF-xm-aYX"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="KHT-xy-wwj"/>
+                    <navigationItem key="navigationItem" title="Home" id="KHT-xy-wwj"/>
                     <connections>
                         <outlet property="productCollectionView" destination="1Zj-Ya-ZuT" id="Y1z-1u-fnR"/>
                         <outlet property="welcomeLabel" destination="dkM-Qj-ypl" id="lTm-oF-F8k"/>
@@ -696,13 +692,13 @@
                                         <rect key="frame" x="0.0" y="44" width="343" height="30"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gps-m0-FR8">
-                                                <rect key="frame" x="0.0" y="0.0" width="235" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="89" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fgr-iw-K2P">
-                                                <rect key="frame" x="255" y="0.0" width="88" height="30"/>
+                                                <rect key="frame" x="109" y="0.0" width="234" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>

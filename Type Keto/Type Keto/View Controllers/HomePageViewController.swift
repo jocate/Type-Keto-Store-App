@@ -74,6 +74,7 @@ class HomePageViewController: UIViewController, UICollectionViewDelegate, UIColl
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
        // setUpNavBar()
+        updateViews()
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationItem.setHidesBackButton(true, animated: true)
        // self.productCollectionView.reloadData()
@@ -82,6 +83,7 @@ class HomePageViewController: UIViewController, UICollectionViewDelegate, UIColl
    
     @IBOutlet weak var productCollectionView: UICollectionView!
     @IBOutlet weak var footerView: UIView!
+    
     @IBOutlet weak var welcomeLabel: UILabel!
     
     var userController: UserController?
