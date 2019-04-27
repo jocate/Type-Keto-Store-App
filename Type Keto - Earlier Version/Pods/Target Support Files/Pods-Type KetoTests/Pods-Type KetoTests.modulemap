@@ -1,0 +1,6 @@
+framework module Pods_Type_KetoTests {
+  umbrella header "Pods-Type KetoTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

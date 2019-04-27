@@ -1,0 +1,6 @@
+framework module Pods_Type_KetoUITests {
+  umbrella header "Pods-Type KetoUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
